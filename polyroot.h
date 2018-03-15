@@ -2,6 +2,12 @@
 #include <vector>
 #include <complex>
 #include <cmath>
+#include <string>
+
+std::vector<std::complex <double> > helper_algo (std::vector <double>)
+{
+  return {};
+};
 
 void polyroot (std::string fileName)
 {
@@ -16,4 +22,3 @@ void polyroot (std::string fileName)
   // and display that shit.
 };
 
-std::vector<std::complex> helper_algo (std::vector <double>);
