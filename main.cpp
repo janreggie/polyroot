@@ -1,4 +1,3 @@
-#include <iostream>
 #include "polyroot.h"
 
 int main(int argc, char** argv)
@@ -9,6 +8,7 @@ int main(int argc, char** argv)
     // display help message or something
     return 1;
   }
+
   polyroot(argv[1]);
   return 0;
 }
