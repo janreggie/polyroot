@@ -4,17 +4,14 @@
 #include <cmath>
 #include <string>
 #include <functional>
-
-std::vector< std::complex <double> > helper_DurandKerner
-(std::vector < std::complex <double> > & rootList,
- std::function < std::complex<double> (std::complex<double>) > & f)
-{
-  // Thank you St. Isidore.
-}
+#include <cassert>
 
 std::vector<std::complex <double> > helper_algo
 (std::vector <double> coefs)
 {
+  // first, assert whether the function is "vaild"
+  // i.e. the n'th coefficient is not zero
+  assert(*coefs.rbegin() != 0);
   // Create a reduced function i.e. whose leading coefficient is one.
   // Note that the function takes in complex and returns complex!
   std::function <std::complex<double> (std::complex<double>) > fxnReduced
@@ -35,6 +32,7 @@ std::vector<std::complex <double> > helper_algo
     rootList.at(i) = std::pow(std::complex<double>(0.4, 0.9), i+1);
 
   // Now do some fixed point iteration
+  // do_stuff.png
 };
 
 void polyroot (std::string fileName)
