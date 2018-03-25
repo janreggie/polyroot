@@ -7,8 +7,6 @@
 #include <cassert>
 #include <algorithm>
 
-#define PI
-
 std::vector<std::complex <double> > helper_algo
 (const std::vector <double> & coefs)
 {
