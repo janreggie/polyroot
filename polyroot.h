@@ -93,11 +93,36 @@ void polyroot (std::string fileName)
   // parse the file fileName
   // check for existence
   // good luck with this
-  std::vector <double> coef;
+  std::vector <double> coefs;  // coefficients
+  std::vector <std::complex<double> > roots;  // all roots
+  int deg;  // degree
+  // and now the fucking lambda function (if only we had Haskell)
+  std::function < std::complex<double> (std::complex<double>) > f
+  = [coefs] (std::complex<double> x)
+  {
+    std::complex<double> ans (0,0);
+    for (unsigned int i = 0; i < coefs.size(); ++i)
+      ans += coefs.at(i) * std::pow(x, i);
+    return ans;
+  };
 
   // call helper_algo
-  auto allRoots = helper_algo (coef);
+  roots = helper_algo (coefs);
 
   // and display that shit.
+
+  std::cout.precision(6);  // for precision
+  std::cout << "Polynomial:\n";
+  for (int x = deg; x >= 0; --x)
+    std::cout << coefs[x] << " x^" << x <<"\n";
+
+  std::cout << "Roots:\n";
+  for (auto & x: roots)
+    std::cout << x << '\n';
+
+  std::cout << "Evaluating polynomial at identified roots:\n";
+  for (auto & x: roots)
+    std::cout << "f" << x << " = " << f(x) << std::endl;
+
 };
 
