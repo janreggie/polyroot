@@ -1,5 +1,5 @@
 #include <iostream>
-#include <sstream> 
+#include <sstream>
 #include <fstream>
 #include <vector>
 #include <complex>
@@ -22,34 +22,33 @@ void polyroot (std::string fileName)
 
   // check for existence of txt file
   myfile.open(fileName);
-  while (myfile.fail())
+  if (myfile.fail())
   {
-    std::cout<<"Error opening file."<<std::endl;
-    std::cout<<"Please enter a valid filename: ";
-    std::cin>>fileName;
-    if(fileName == "exit") break;
-    myfile.open(fileName);
+    std::cout << "File " << fileName << " does not exist.\n";
+    exit(2);
   }
-  
+
   // store parsed data into a vector of double
-  std::vector <double> coef;
-  int deg, icoeff;
+  std::vector <double> coefs;  // coefficients
+  std::vector < std::complex<double> > roots;  // all roots
+  int deg;  // degree
+  double icoeff;
   myfile >> deg;
   if (deg < 0)
   {
-    std::cout<<"You have entered an invalid input file.";
+    std::cout << "Invalid degree.\n";
     exit(1);
   }
-  
+
   for (int i = 0; i<=deg; i++)
   {
     myfile>>icoeff;
-    coef.push_back(icoeff);
+    coefs.push_back(icoeff);
   }
- 
+
 
   // call helper_algo
-  auto allRoots = helper_algo (coef);
+  roots = helper_algo (coef);
 
   // and display that shit.
 };
