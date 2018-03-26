@@ -2,8 +2,6 @@
 #include <chrono>
 #include "polyroot.h"
 
-
-
 int main(int argc, char** argv)
 {
 
@@ -23,7 +21,12 @@ Read the README for more information.\n\
   {
     // display help message or something
     std::cout << help_msg;
-    return 1;
+    
+    std::string filename;
+    std::cout << "filename: ";
+    std::cin >> filename;
+    polyroot(filename);
+
   }
 
   polyroot(argv[1]);
