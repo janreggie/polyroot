@@ -169,6 +169,8 @@ void polyroot (std::string fileName)
   for (auto & x: roots)
     std::cout << "f" << x << " = " << f(x) << std::endl;
   std::cout << std::endl;
-
+  
+  //save to .txt file
+  
 };
 

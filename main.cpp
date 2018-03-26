@@ -22,6 +22,12 @@ Read the README for more information.\n\
   {
     // display help message or something
     std::cout << help_msg;
+    
+    std::string filename;
+    std::cout << "filename: ";
+    std::cin >> filename;
+    polyroot(filename);
+
   }
 
   polyroot(argv[1]);
