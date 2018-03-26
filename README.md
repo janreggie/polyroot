@@ -1,6 +1,7 @@
 # polyroot
 
-Implementation of `polyroot` by Dela Cruz, Park, and Vallente
+Implementation of `polyroot` by Dela Cruz (@janreggie),
+Park (@sangjeona), and Vallente (@jriaghan).
 
 ## Syntax
 
@@ -26,3 +27,15 @@ contain decimal points.
 The root-finding algorithm shall be the Durand-Kerner algorithm, whose
 initial roots are determined using [Guggenheimer's *Initial Approximations
 in Durand-Kerner's Root-Finding Method*](https://doi.org/10.1007/BF01935059).
+
+The header file `polyroot.h` is extendible enough wherein the command
+`helper_algo()` may be changed to use a different algorithm e.g. Bairstow's.
+
+## License
+
+`polyroot` is under the BSD 3-Clause License.
+
+Copyright (c) 2018, @janreggie, @jriaghan, @sangjeona
+
+All rights reserved.
+
