@@ -27,6 +27,6 @@ Read the README for more information.\n\
 
   }
 
-  polyroot(argv[1]);
+  else polyroot(argv[1]);
   return 0;
 }
