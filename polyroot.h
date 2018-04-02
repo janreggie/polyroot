@@ -169,40 +169,40 @@ void polyroot (std::string fileName)
   for (auto & x: roots)
     std::cout << "f" << x << " = " << f(x) << std::endl;
   std::cout << std::endl;
-  
+
   //ask user if he/she wants to save it in a text file
   char yesno;
   int sigfigs;
   std::string out_filename;
-  
+
   std::cout << "Would you like to save output in a text file?\n";
   std::cout << "Y/N?:";
   std::cin >> yesno;
-  
+
   //save to text file
-  if (yesno == 'Y')
+  if (yesno == 'Y' || yesno == 'y')
   {
     // ask for filename and significant figures
+    std::cin.ignore();
+    std::cin.clear();
     std::cout << "Enter output filename: ";
     std::getline(std::cin, out_filename);
-    std::cout << "NOTE: Precision of program is up to 1e-9 only.\n";
     std::cout << "Enter significant figures: ";
     std::cin >> sigfigs;
 
     // check in the case that user puts in invalid sigfigs
     // in that case, use default sigfigs (ROUNDOFF)
     if (sigfigs <= 0)
-        sigfigs = ROUNDOFF
+        sigfigs = ROUNDOFF;
 
     //declare output file
     std::ofstream out_result(out_filename);
-    
+
     //write to output file
     out_result.precision(sigfigs);  // for precision
     if (ISFIXED)
       out_result << std::fixed;  // output shall be fixed desu
 
-    cmd
     out_result << "Polynomial:\n";
     for (int x = deg; x >= 0; --x)
       out_result << coefs[x] << " x^" << x <<"\n";
@@ -217,7 +217,7 @@ void polyroot (std::string fileName)
     for (auto & x: roots)
       out_result << "f" << x << " = " << f(x) << std::endl;
     out_result << std::endl;
-    
+
   }
-  
+
 };

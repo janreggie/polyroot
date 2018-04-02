@@ -15,13 +15,11 @@ Usage:\n\
 Read the README for more information.\n\
 ";
 
-  using namespace std::chrono;  // for time testing
-  auto t0 = high_resolution_clock::now();
   if (argc == 1)
   {
     // display help message or something
     std::cout << help_msg;
-    
+
     std::string filename;
     std::cout << "filename: ";
     std::cin >> filename;
@@ -30,10 +28,5 @@ Read the README for more information.\n\
   }
 
   polyroot(argv[1]);
-  auto t1 = high_resolution_clock::now();
-  std::cout
-    << "The algorithm took "
-    << duration_cast<microseconds>(t1-t0).count()
-    << " microseconds.\n";
   return 0;
 }
