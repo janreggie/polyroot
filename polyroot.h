@@ -184,11 +184,16 @@ void polyroot (std::string fileName)
   {
     // ask for filename and significant figures
     std::cout << "Enter output filename: ";
-    std::cin >> out_filename;
+    std::getline(std::cin, out_filename);
     std::cout << "NOTE: Precision of program is up to 1e-9 only.\n";
     std::cout << "Enter significant figures: ";
     std::cin >> sigfigs;
-    
+
+    // check in the case that user puts in invalid sigfigs
+    // in that case, use default sigfigs (ROUNDOFF)
+    if (sigfigs <= 0)
+        sigfigs = ROUNDOFF
+
     //declare output file
     std::ofstream out_result(out_filename);
     
